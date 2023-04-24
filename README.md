@@ -8,9 +8,9 @@ Modifikasi kode yang ada. Ketika pencet WASD, skor masih jadi 1 2 3 4 secara har
 ## Dokumentasi
 ### Start
 
-![start](https://github.com/dauspairet/LP7C2DPBO2022/raw/main/Screenshot/start.jpg)
+![start](https://github.com/dauspairet/LP7C2DPBO2023/raw/main/Screenshot_Video/start.jpg)
 
 ### Simulation
 
-![gif](https://github.com/dauspairet/LP7C2DPBO2022/raw/main/Screenshot/gif.gif)
+![video_WASD](https://github.com/dauspairet/LP7C2DPBO2023/raw/main/Screenshot_Video/WASD.mov)
 
