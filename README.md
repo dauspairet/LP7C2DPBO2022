@@ -12,5 +12,15 @@ Modifikasi kode yang ada. Ketika pencet WASD, skor masih jadi 1 2 3 4 secara har
 
 ### Simulation
 
-![video_WASD](https://github.com/dauspairet/LP7C2DPBO2023/raw/main/Screenshot_Video/WASD.mov)
+#### WASD
+
+https://user-images.githubusercontent.com/100768773/234002535-60538962-dd65-412a-ad8a-d173751ad925.mov
+
+#### Bonus
+
+https://user-images.githubusercontent.com/100768773/234002777-73e11ea4-b53f-41ff-851e-f9f946e64f0f.mov
+
+
+
+
 
