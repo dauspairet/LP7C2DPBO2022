@@ -1,3 +1,8 @@
+// Saya Muhamad Firdaus [2101995] mengerjakan
+// soal Latihan Praktikum 7 dalam mata kuliah DPBO
+// untuk keberkahanNya maka saya tidak melakukan kecurangan 
+// seperti yang telah dispesifikasikan. Aamiin.
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -20,6 +25,7 @@ public class Handler implements GameInterface
     
     private ArrayList<GameObject> object; // Array / List of GameObject.
     private Random rand;                  // Randomizer.
+    int bonusScore;                       // Marker for bonus score 
     
     /**
      * Constructor.
@@ -30,6 +36,10 @@ public class Handler implements GameInterface
     {
         this.object = new ArrayList<>();
         this.rand = new Random();
+    }
+
+    public void setBonusScore(int bonusScore) {
+        this.bonusScore = bonusScore;
     }
     
     /**
@@ -64,6 +74,33 @@ public class Handler implements GameInterface
     public void remove(GameObject object)
     {
         this.object.remove(object);
+    }
+    
+    public void collision(GameObject player, GameObject bonus) {
+        // if there's a collision
+        if (checkCollision(player, bonus)) {
+            // randomize location with the current boundary
+            bonus.setX(rand.nextInt(Game.width - 50));
+            bonus.setY(rand.nextInt(Game.height - 70));
+            
+            // Mark bonus score
+            setBonusScore(1);
+        }
+    }
+
+    // Check if there's a collision
+    private boolean checkCollision(GameObject obj1, GameObject obj2) {
+        // If there''s no collision
+        if (obj2 == null) {
+            return false;
+        }
+        
+        // If there's a collision
+        if (obj1.getX() + obj1.getWidth() >= obj2.getX() && obj1.getX() <= obj2.getX() + obj2.getWidth() &&
+            obj1.getY() + obj1.getHeight() >= obj2.getY() && obj1.getY() <= obj2.getY() + obj2.getHeight()) {
+            return true;
+        }
+        return false;
     }
     
     /**

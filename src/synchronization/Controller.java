@@ -29,6 +29,9 @@ public class Controller extends KeyAdapter implements KeyListener
     // marker to avoid getting score when key is long pressed
     int mark = 0;
     
+    // only score when press different key
+    int dif = 0;
+    
     /**
      * Constructor.
      */
@@ -109,52 +112,64 @@ public class Controller extends KeyAdapter implements KeyListener
             {
                 // Move up.
                 temp.setVelY(-5);
-                // Condition to avoid getting score if the button being long pressed
-                if(mark == 0){
+                // Condition to avoid getting score if the button being long pressed and avoid pressing the same key simultaneously
+                if(mark == 0 && dif != 1){
                     // Add score
                     game.movementScore();
                     
                     // Mark
                     mark++;
+                    
+                    // Avoid pressing the same key simultaneously key W and up arrow
+                    dif = 1;
                 }
             }
             if((key == KeyEvent.VK_A) || (key == KeyEvent.VK_LEFT))
             {
                 // Move left.
                 temp.setVelX(-5);
-                // Condition to avoid getting score if the button being long pressed
-                if(mark == 0){
+                // Condition to avoid getting score if the button being long pressed and avoid pressing the same key simultaneously
+                if(mark == 0 && dif != 2){
                     // Add score
                     game.movementScore();
                     
                     // Mark
                     mark++;
+                    
+                    // Avoid pressing the same key simultaneously key A and left arrow
+                    dif = 2;
                 }
             }
             if((key == KeyEvent.VK_S) || (key == KeyEvent.VK_DOWN))
             {
                 // Move down.
                 temp.setVelY(+5);
-                // Condition to avoid getting score if the button being long pressed
-                if(mark == 0){
+                // Condition to avoid getting score if the button being long pressed and avoid pressing the same key simultaneously
+                if(mark == 0 && dif != 3){
                     // Add score
                     game.movementScore();
                     
                     // Mark
                     mark++;
+                    
+                    // Avoid pressing the same key simultaneously key S and down arrow
+                    dif = 3;
                 }
             }
             if((key == KeyEvent.VK_D) || (key == KeyEvent.VK_RIGHT))
             {
                 // Move right.
                 temp.setVelX(+5);
-                // Condition to avoid getting score if the button being long pressed
-                if(mark == 0){
+                // Condition to avoid getting score if the button being long pressed and avoid pressing the same key simultaneously
+                if(mark == 0 && dif != 4){
                     // Add score
                     game.movementScore();
                     
                     // Mark
                     mark++;
+                    
+                    // Avoid pressing the same key simultaneously marker for key D and right arrow
+                    dif = 4;
                 }
             }
         }

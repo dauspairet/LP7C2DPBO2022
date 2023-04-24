@@ -67,6 +67,7 @@ public class Game extends Canvas implements Runnable
             if(running)
             {
                 handler.add(new Player(320, 160));
+                handler.add(new Bonus(160, 80));
             }
         } catch(Exception e)
         {
@@ -107,6 +108,12 @@ public class Game extends Canvas implements Runnable
     public void movementScore()
     {
         score++;
+    }
+    
+    // For bonus score if player object met bonus object
+    public void capturedScore()
+    {
+        score = score + 5;
     }
     
     /**
@@ -188,7 +195,7 @@ public class Game extends Canvas implements Runnable
             Font newFont = oldFont.deriveFont(oldFont.getSize() * 1.3f);
             g.setFont(newFont);
             
-            g.setColor(Color.blue);
+            g.setColor(Color.white);
             g.drawString("Score : " + Integer.toString(score), 20, 30);
             
         }
@@ -201,7 +208,11 @@ public class Game extends Canvas implements Runnable
     // Main loop proccess.
     public void loop()
     {
+        // Marker for collission
+        boolean collision = false;
+        
         GameObject player = null;
+        GameObject Bonus = null;
         
         handler.loop();
         if(this.running)
@@ -229,6 +240,22 @@ public class Game extends Canvas implements Runnable
                 if(handler.get(i).getType().equals("Player"))
                 {
                     player = handler.get(i);
+                }
+                if (handler.get(i).getType().equals("Bonus"))
+                {
+                    Bonus = handler.get(i);
+                }
+                
+                // Called collision
+                handler.collision(player, Bonus);
+                
+                // If there's collision, player received bonus score
+                if(handler.bonusScore == 1){
+                    // Bonus score
+                    capturedScore();
+                    
+                    // Reset bonus score mark
+                    handler.bonusScore = 0;
                 }
             }
         }
